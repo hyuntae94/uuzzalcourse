@@ -1,0 +1,62 @@
+.logoContainer{
+    padding : 5px;
+    border-bottom: 1px solid grey;
+    .logo{
+        width:100%;
+        height: 100%;
+        background: url('../pages/images/logo.png');
+        background-size:cover;
+        background-position:  center;
+    }
+}
+
+.iconContainer {
+    margin : 10px 0;
+    border-bottom: 1px solid grey;
+    
+    .iconHome{
+        padding: 14px 3px;
+        background-color: #FF410D;
+        margin: 0 5px;
+        border-radius: 10px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.optionContainer{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 3px 2px;
+    .option_busket{
+        margin: 8px 4px;
+        background: url('../pages/images/bucket.png');
+        background-size:cover;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .option_alarm{
+        margin: 8px 4px;
+        background-image: url('../pages/images/alarm.png');
+        background-size: cover;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .optin_profile{
+        margin: 13px 5px;
+        padding: 10px 0;
+        background-color: grey;
+        border-radius: 50%;
+        text-align: center;    
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+

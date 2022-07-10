@@ -1,0 +1,23 @@
+.main {
+    width:100vw;
+    height:100vh;
+    display: grid;
+    grid-template-columns: .1fr .6fr 1.8fr;
+
+    .sidebar {
+        background-color: white;
+        border-right: 1px grey solid;
+        display:grid;
+        grid-template-rows: .1fr .6fr .3fr;
+    }
+
+    .content {
+        background-color: white;
+        padding: 5px;
+    }
+    .map{
+        background: url('../pages/images/map.png');
+        background-size: cover;
+    }
+}
+
