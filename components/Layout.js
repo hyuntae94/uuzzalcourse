@@ -18,9 +18,15 @@ export default function Layout({children}){
             </div>
             
             <div className={styles.content}>
-            <input className={styles.input} placeholder="검색어를 입력하세요">
-            </input>
-                    {children}
+            <input className={styles.input} placeholder="검색어를 입력하세요"></input>
+            <nav className={styles.filter}>
+                <button>
+                    <i className={styles.filter__item}>
+                        test
+                    </i>
+                </button>
+            </nav>
+                {children}
             </div>
             <div className={styles.map}></div>
         </div>
