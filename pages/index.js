@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux"
 import { useState } from "react"
+import styled from "styled-components";
+
 
 
 export default function Home() {
@@ -26,3 +28,11 @@ export default function Home() {
     </div>
   )
 }
+
+const ButtonWrap = styled.div`
+width: 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 50px auto;
+`;
