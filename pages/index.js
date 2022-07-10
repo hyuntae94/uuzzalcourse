@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { useState } from "react"
 import styled from "styled-components";
 
-
+import AddCourse from "../components/AddCourse.js";
 
 export default function Home() {
 
@@ -25,6 +25,7 @@ export default function Home() {
           )
         })
       }
+    <AddCourse/>
     </div>
   )
 }
