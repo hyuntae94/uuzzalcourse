@@ -10,11 +10,16 @@ export default function Layout({children}){
         <Head>
             <title>어쩔코스</title>
         </Head>
+        
         <div className={styles.main}>
-            <div className={styles.sidebar}>
+            
+            <div className={styles.sidebar} >
                 <SideBar/>
             </div>
+            
             <div className={styles.content}>
+            <input className={styles.input} placeholder="검색어를 입력하세요">
+            </input>
                     {children}
             </div>
             <div className={styles.map}></div>
