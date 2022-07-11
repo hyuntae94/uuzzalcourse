@@ -16,9 +16,16 @@ export default function AddCourse(){
 }
 
 function Modal({modalClose}){
+
+    const modal__container__close = (e) => {
+        if (e.target === e.currentTarget){
+            modalClose();
+        }
+    }
+
     return (
         <>
-            <div className={style.modal__container}>
+            <div className={style.modal__container} onClick={modal__container__close}>
                 <div className={style.modal}>
                     <button className={style.modal__button} onClick={modalClose}>X</button>
                     <div>제목부분</div>
