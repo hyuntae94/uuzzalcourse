@@ -2,7 +2,7 @@
     width:100vw;
     height:100vh;
     display: grid;
-    grid-template-columns: .1fr .6fr 1.8fr;
+    grid-template-columns: .1fr .8fr 1.8fr;
 
     .sidebar {
         background-color: white;
@@ -12,6 +12,7 @@
     }
 
     .content {
+        overflow-y: scroll;
         background-color: white;
         padding: 5px;
     }

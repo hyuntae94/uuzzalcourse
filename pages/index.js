@@ -6,7 +6,8 @@ import ShowCourse from "../components/showCourse.js";
 export default function Home() {
 
   //22-07-10 HJW HELLO
-  return (
+
+    return (
     <>
       <ShowCourse/>
       <AddCourse/>

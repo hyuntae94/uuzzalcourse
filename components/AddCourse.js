@@ -8,10 +8,10 @@ export default function AddCourse(){
         setModalOpen(!modalOpen);
     }
     return (
-        <>
-            <button onClick={modalClose}>+</button>
+        <div className={style.addCourse__button__container}>
+            <button onClick={modalClose} className={style.addCourse__button}>+</button>
             {modalOpen && <Modal modalClose={modalClose}></Modal>}
-        </>
+        </div>
     )
 }
 
