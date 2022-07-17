@@ -1,4 +1,5 @@
 import SingUp from "../components/SignUp"
+import Login from "../components/login"
 
 export default function Profile(){
 
@@ -6,6 +7,7 @@ export default function Profile(){
         <>
             <div>프로필페이지임다</div>
             <SingUp/>
+            <Login/>
         </>
     )
 }

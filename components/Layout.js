@@ -22,8 +22,9 @@ export default function Layout({children}){
             <nav className={styles.filter}>
                 <button>
                     <i className={styles.filter__item}>
-                        test
+                        필터아이템
                     </i>
+                    
                 </button>
             </nav>
                 {children}

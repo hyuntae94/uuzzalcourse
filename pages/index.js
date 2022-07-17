@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 import AddCourse from "../components/AddCourse.js";
 import ShowCourse from "../components/showCourse.js";
+import Login from "../components/login.js";
 
 export default function Home() {
-
-  //22-07-10 HJW HELLO
 
     return (
     <>
       <ShowCourse/>
       <AddCourse/>
+      <Login/>
     </>
   )
 }
