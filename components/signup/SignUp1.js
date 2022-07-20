@@ -1,7 +1,21 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
 export default function SignUp1({closeSignUp,nextStage}){
+
+    const [password,setPassword] = useState('');
+    const [passwordCheck,setPasswordCheck] = useState();
+
+    const [passwordError, setPasswordError] = useState(false);
+
+    const checkPasswordError = () => {
+        if(password === passwordCheck) setPasswordError(true);
+        else setPasswordError(false);
+    }
+
+    useEffect(()=>{
+        checkPasswordError();
+    },[passwordCheck])
 
     return (    
         <div className={styles.signUp__container}>
@@ -25,16 +39,20 @@ export default function SignUp1({closeSignUp,nextStage}){
                 </div>
                 <div className={styles.signUp__container__content__emailContainer}>
                     <span>아이디(이메일)</span>
-                    <input type={'text'} placeholder='이메일 입력'/>
+                    <input type={'text'} placeholder='이메일 입력' required></input>
+                    <button>중복 확인</button>
                 </div>
                 <div className={styles.signUp__container__content__passwordContainer}>
                     <span>비밀번호</span>
-                    <input id="pwInput" type={'password'} placeholder='비밀번호 입력'/>
-                    <input id="pwCheck" type={'password'} placeholder='비밀번호 확인'/>
+                    <input type={'password'} placeholder='비밀번호 입력' onChange={(e) => {e.preventDefault(); setPassword(e.target.value)}} required/>
+                    <input type={'password'} placeholder='비밀번호 확인'onChange={(e) => { e.preventDefault();setPasswordCheck(e.target.value)}} required></input>
+                    {
+                        passwordError && <check>v</check>
+                    }
                 </div>
                 <div className={styles.signUp__container__content__nicknameContainer}>
                     <span>닉네임</span>
-                    <input type={'text'} placeholder='닉네임 입력'/>
+                    <input type={'text'} placeholder='닉네임 입력' required/>
                     <button>중복확인</button>
                 </div>
                 <div className={styles.signUp__container__content__nextBtn} onClick={nextStage}>

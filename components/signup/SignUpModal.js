@@ -5,7 +5,7 @@ import SingUpMain from "./SignUpMain.js";
 export default function SingUpModal(){
 
     const [signUP, setSignUp] = useState(false);
-
+    
     const signUpController = () => {
         setSignUp(!signUP);
     }

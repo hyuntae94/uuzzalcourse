@@ -93,6 +93,7 @@
             font-size:13px;
             display:flex;
             flex-direction: column;
+            position: relative;
             > span {
                 margin: 10px 0px;
             }
@@ -105,8 +106,14 @@
                     outline:none;
                 }
             }
+            > button {
+                position: absolute;
+                right: 8px;
+                bottom: 16px;
+            }
         }
         &__passwordContainer{
+            position: relative;
             color:rgb(75,75,75);
             font-size:13px;
             display:flex;
@@ -124,6 +131,14 @@
                     outline:none;
                 }
             }
+            > check {
+                color:rgb(27,194,84);
+                font-size:20px;
+                position: absolute;
+                right: 5px;
+                bottom: 15px;
+            }
+           
         }
         &__nicknameContainer{
             position:relative;
@@ -144,11 +159,6 @@
                 }
             }
             > button {
-                font-size: 8px;
-                font-weight: 300;
-                color:white;
-                border-radius: 10px;
-                background-color: rgb(62,62,62);
                 position: absolute;
                 right: 8px;
                 bottom: 16px;
@@ -171,6 +181,7 @@
             }
         }
         &__nameContainer{
+            position: relative;
             color:rgb(75,75,75);
             font-size:13px;
             margin: 20px 0px;
@@ -193,7 +204,7 @@
             color:rgb(75,75,75);
             font-size:13px;
             &__identify{
-                padding: 20px 0px;
+                padding: 10px 0px 20px;
                 text-align: center;
                 display:grid;
                 grid-template-columns: 1fr .1fr .2fr .8fr;
