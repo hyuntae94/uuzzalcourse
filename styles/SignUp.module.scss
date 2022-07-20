@@ -46,7 +46,7 @@
                         height:30px;
                         border-radius: 50%;
                         color: white;
-                        background-color: red;
+                        background-color: rgb(253,73,12);
                         margin: 5px 35px 10px;
                         display:flex;
                         justify-content: center;
@@ -165,8 +165,105 @@
             color:rgb(239,239,239);
             background-color: rgb(207,207,207);
             &:hover{
+                cursor:pointer;
                 background-color: rgb(62,62,62);
                 color:white;
+            }
+        }
+        &__nameContainer{
+            color:rgb(75,75,75);
+            font-size:13px;
+            margin: 20px 0px;
+            display:flex;
+            flex-direction: column;
+            > span{
+                margin-bottom: 5px;
+            }
+            > input {
+                margin: 3px 0px 8px;
+                padding: 10px 0px;
+                border:none;
+                border-bottom: 1px solid rgb(219,219,219);
+                &:focus{
+                    outline:none;
+                }
+            }
+        }
+        &__identifyContainer{
+            color:rgb(75,75,75);
+            font-size:13px;
+            &__identify{
+                padding: 20px 0px;
+                text-align: center;
+                display:grid;
+                grid-template-columns: 1fr .1fr .2fr .8fr;
+                > input:nth-child(1) {
+                    margin: 3px 0px 8px;
+                    border:none;
+                    border-bottom: 1px solid rgb(219,219,219);
+                    &:focus{
+                        outline:none;
+                    }
+                }
+                > input:nth-child(3) {
+                    padding: 5px;
+                    margin: 3px 0px 8px 16px;
+                    width:22px;
+                    height: 40px;
+                }
+                > span {
+                    line-height: 43px;
+                }
+                > span:nth-child(2){
+                    margin: 0px 5px;
+                }
+                > span:nth-child(4){
+                    font-size:5px;
+                    letter-spacing: 8px;
+                    color:rgb(75,75,75);
+                }
+            }
+        }
+        &__phoneContainer{
+            margin-bottom: 20px;
+            color:rgb(75,75,75);
+            font-size:13px;
+            div {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                button{
+                    position: absolute;
+                    right: 3px;
+                    bottom:15px;
+                }
+            }
+            input {
+                margin: 3px 0px 8px;
+                padding: 10px 0px;
+                border:none;
+                border-bottom: 1px solid rgb(219,219,219);
+                &:focus{
+                    outline:none;
+                }
+            }
+        }
+        &__completeMessage{
+            height: 35vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            line-height: 35px;
+            > span:nth-child(1){
+                color:rgb(18,18,18);
+                font-weight: 500;
+                font-size: 20px;
+            }
+            > span:nth-child(2){
+                color:rgb(164,164,164);
+                font-weight: 300;
+                font-size: 14px;
             }
         }
     }   
