@@ -3,11 +3,13 @@ import styled from "styled-components";
 import AddCourse from "../components/AddCourse.js";
 import ShowCourse from "../components/showCourse.js";
 import Login from "../components/login.js";
+import SearchBar from "../components/SearchBar";
 
 export default function Home() {
 
     return (
     <>
+      <SearchBar/>
       <ShowCourse/>
       <AddCourse/>
       <Login/>
