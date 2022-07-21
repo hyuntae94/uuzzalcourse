@@ -6,7 +6,7 @@ const CORS = createSlice({
     initialState : [
         {
             corsId: 0,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스0',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -17,7 +17,7 @@ const CORS = createSlice({
         },
         {
             corsId: 1,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스1',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -28,7 +28,7 @@ const CORS = createSlice({
         },
         {
             corsId: 2,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스2',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -39,7 +39,7 @@ const CORS = createSlice({
         },
         {
             corsId: 3,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스3',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -49,7 +49,7 @@ const CORS = createSlice({
         },
         {
             corsId: 4,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스4',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -59,7 +59,7 @@ const CORS = createSlice({
         },
         {
             corsId: 5,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스5',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -69,7 +69,7 @@ const CORS = createSlice({
         },
         {
             corsId: 6,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스6',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,
@@ -79,7 +79,7 @@ const CORS = createSlice({
         },
         {
             corsId: 7,
-            title : '홍대 나만 알고 싶은 코스',
+            title : '홍대 나만 알고 싶은 코스7',
             content:'점심식사 후 디저트까지 완벽한 조합',
             star : 5,
             viewCnt : 100,

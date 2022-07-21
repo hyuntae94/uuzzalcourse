@@ -6,6 +6,7 @@ import Layout from '../components/Layout.js'
 import store from '../data/store.js'
 
 function MyApp({ Component, pageProps }) {
+  
   return (
     <Provider store={store}>
       <Layout>
