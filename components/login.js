@@ -9,14 +9,11 @@ export default function Login(){
     const modalClose = () => {
         setModalOpen(!modalOpen);
     }
-
     return (
         <div>            
             {modalOpen && <Modal modalClose={modalClose}></Modal>}
             <button onClick={modalClose}>로그인</button>            
-        </div>
-        
-       
+        </div>  
     )
 }
 
