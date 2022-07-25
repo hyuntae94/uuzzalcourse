@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React ,{ useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
 export default function SignUp1({closeSignUp,nextStage}){
@@ -14,6 +14,22 @@ export default function SignUp1({closeSignUp,nextStage}){
     const [passwordError, setPasswordError] = useState(false);
     const [nickNameError, setNicknameError] = useState(false);
 
+    const changeEmail = useCallback((e) =>{
+        setEmail(e.target.value);
+    },[email])
+     
+    const changePW = useCallback((e) =>{
+        setPassword(e.target.value);
+    },[password])
+
+    const changePWCheck = useCallback((e) =>{
+        setPasswordCheck(e.target.value);
+    },[passwordCheck])
+
+    const changeNickname = useCallback((e)=>{
+        setNickName(e.target.value);
+    },[nickName])
+
     const validateEmail = (e) => {
         e.preventDefault();
         const re = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
@@ -25,17 +41,17 @@ export default function SignUp1({closeSignUp,nextStage}){
     const checkPasswordError = () => {
         if(password === passwordCheck) setPasswordError(true);
         else setPasswordError(false);
-    } 
+    }
 
     const checkNicknameError = () => {
-       if(!nickName) alert('닉네임을 입력해주세요!');
-       else setNicknameError(true);
-    }
+        if(!nickName) alert('닉네임을 입력해주세요!');
+        else setNicknameError(true);
+     }
 
     const checkNextStage = () => {
         emailError && passwordError && nickNameError
-        ? nextStage
-        : alert('모든 항목을 입력해주세요!')
+        ? nextStage()
+        : alert('모든 항목을 올바르게 입력해주세요!')
     }
 
     useEffect(()=>{
@@ -64,7 +80,7 @@ export default function SignUp1({closeSignUp,nextStage}){
                 </div>
                 <div className={styles.signUp__container__content__emailContainer}>
                         <span>아이디(이메일)</span>
-                        <input type={'text'} placeholder='abcd@example.com' onChange={(e)=> setEmail(e.target.value)} required></input>
+                        <EmailInput changeEmail={changeEmail}/>
                         <button onClick={validateEmail}>중복 확인</button>
                         {
                             emailError && <div style={{'color':'rgb(103,214,140)','fontSize':'8px'}}>사용가능한 이메일입니다.</div>
@@ -72,15 +88,15 @@ export default function SignUp1({closeSignUp,nextStage}){
                 </div>
                 <div className={styles.signUp__container__content__passwordContainer}>
                     <span>비밀번호</span>
-                    <input type={'password'} placeholder='비밀번호 입력' onChange={(e) => {setPassword(e.target.value)}} required/>
-                    <input type={'password'} placeholder='비밀번호 확인'onChange={(e) => {setPasswordCheck(e.target.value)}} required></input>
+                    <PwInput changePW={changePW} />
+                    <PwCheckInput changePWCheck={changePWCheck} />
                     {
                         passwordError && <check>v</check>
                     }
                 </div>
                 <div className={styles.signUp__container__content__nicknameContainer}>
                     <span>닉네임</span>
-                    <input type={'text'} placeholder='닉네임 입력' onChange={(e)=>setNickName(e.target.value)} required/>
+                    <NickNameInput changeNickname={changeNickname}/>
                     <button onClick={checkNicknameError}>중복확인</button>
                     {
                             nickNameError && <div style={{'color':'rgb(103,214,140)','fontSize':'8px'}}>사용가능한 닉네임입니다.</div>
@@ -95,5 +111,25 @@ export default function SignUp1({closeSignUp,nextStage}){
     )
 }
 
+function EmailInput({changeEmail}) {
+    return (
+        <input type={'text'} placeholder='abcd@example.com' onChange={changeEmail} required />
+    )
+}
+function PwInput({changePW}){
+    return (
+        <input type={'password'} placeholder='비밀번호 입력' onChange={changePW} required/>
+    )
+}
 
-// export default React.memo(SignUp1);
+function PwCheckInput({changePWCheck}){
+    return (
+        <input type={'password'} placeholder='비밀번호 확인'onChange={changePWCheck} required  />
+    )
+}
+function NickNameInput({changeNickname}){
+    return (
+        <input type={'text'} placeholder='닉네임 입력' onChange={changeNickname} required/>
+    )
+}
+
