@@ -12,7 +12,6 @@ export default function Home() {
       <SearchBar/>
       <ShowCourse/>
       <AddCourse/>
-      <Login/>
     </>
   )
 }
