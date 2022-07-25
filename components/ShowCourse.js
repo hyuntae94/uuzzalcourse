@@ -10,7 +10,7 @@ export default function ShowCourse() {
 
   const [showChild, setShowChild] = useState(false);
   const {CORS} = useSelector(state=>state);
-
+      
 
   useEffect(() => {
     setShowChild(true);

@@ -1,16 +1,41 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
 export default function SignUp1({closeSignUp,nextStage}){
 
+    console.log(1);
+
+    const [email, setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [passwordCheck,setPasswordCheck] = useState();
+    const [nickName, setNickName] = useState('');
 
+    const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+    const [nickNameError, setNicknameError] = useState(false);
 
+    const validateEmail = (e) => {
+        e.preventDefault();
+        const re = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
+        
+        if (re.test(email)) setEmailError(true);
+        else alert('이메일 형식을 올바르게 입력해주세요');
+    }
+    
     const checkPasswordError = () => {
         if(password === passwordCheck) setPasswordError(true);
         else setPasswordError(false);
+    } 
+
+    const checkNicknameError = () => {
+       if(!nickName) alert('닉네임을 입력해주세요!');
+       else setNicknameError(true);
+    }
+
+    const checkNextStage = () => {
+        emailError && passwordError && nickNameError
+        ? nextStage
+        : alert('모든 항목을 입력해주세요!')
     }
 
     useEffect(()=>{
@@ -38,24 +63,30 @@ export default function SignUp1({closeSignUp,nextStage}){
                     </div>
                 </div>
                 <div className={styles.signUp__container__content__emailContainer}>
-                    <span>아이디(이메일)</span>
-                    <input type={'text'} placeholder='이메일 입력' required></input>
-                    <button>중복 확인</button>
+                        <span>아이디(이메일)</span>
+                        <input type={'text'} placeholder='abcd@example.com' onChange={(e)=> setEmail(e.target.value)} required></input>
+                        <button onClick={validateEmail}>중복 확인</button>
+                        {
+                            emailError && <div style={{'color':'rgb(103,214,140)','fontSize':'8px'}}>사용가능한 이메일입니다.</div>
+                        }
                 </div>
                 <div className={styles.signUp__container__content__passwordContainer}>
                     <span>비밀번호</span>
-                    <input type={'password'} placeholder='비밀번호 입력' onChange={(e) => {e.preventDefault(); setPassword(e.target.value)}} required/>
-                    <input type={'password'} placeholder='비밀번호 확인'onChange={(e) => { e.preventDefault();setPasswordCheck(e.target.value)}} required></input>
+                    <input type={'password'} placeholder='비밀번호 입력' onChange={(e) => {setPassword(e.target.value)}} required/>
+                    <input type={'password'} placeholder='비밀번호 확인'onChange={(e) => {setPasswordCheck(e.target.value)}} required></input>
                     {
                         passwordError && <check>v</check>
                     }
                 </div>
                 <div className={styles.signUp__container__content__nicknameContainer}>
                     <span>닉네임</span>
-                    <input type={'text'} placeholder='닉네임 입력' required/>
-                    <button>중복확인</button>
+                    <input type={'text'} placeholder='닉네임 입력' onChange={(e)=>setNickName(e.target.value)} required/>
+                    <button onClick={checkNicknameError}>중복확인</button>
+                    {
+                            nickNameError && <div style={{'color':'rgb(103,214,140)','fontSize':'8px'}}>사용가능한 닉네임입니다.</div>
+                    }
                 </div>
-                <div className={styles.signUp__container__content__nextBtn} onClick={nextStage}>
+                <div className={styles.signUp__container__content__nextBtn} onClick={checkNextStage}>
                     <span>다음</span>
                 </div>
                 <div onClick={closeSignUp} className={styles.signUp__container__content__button}>X</div>
@@ -63,3 +94,6 @@ export default function SignUp1({closeSignUp,nextStage}){
         </div>
     )
 }
+
+
+// export default React.memo(SignUp1);

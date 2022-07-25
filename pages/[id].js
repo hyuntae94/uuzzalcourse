@@ -15,9 +15,7 @@ export default  function post(){
                 <div>{data.title}</div>
             </>
         )
-    } else {
-        console.log('로딩중')
-    }
+    } else return 'Loading...';
 
 
 }
