@@ -1,7 +1,29 @@
+import { useCallback, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
 export default function SignUp2({closeSignUp,nextStage}) {
     
+    const [name, setName] = useState('');
+    const [rrn, setRrn] = useState();
+    const [backRrn, setBackRrn] = useState();
+    const [phone, setPhone] = useState();
+
+    const changeName = useCallback((e)=>{
+        setName(e.target.value)
+    },[name])
+
+    const changeRrn = useCallback((e)=>{
+        setRrn(e.target.value)
+    },[rrn])
+
+    const changeBackRrn = useCallback((e)=>{
+        setBackRrn(e.target.value);
+    },[backRrn])
+
+    const changePhone = useCallback((e)=>{
+        setPhone(e.target.value);
+    },[phone])
+
     return (    
         <div className={styles.signUp__container}>
             <div className={styles.signUp__container__content}>
@@ -23,28 +45,23 @@ export default function SignUp2({closeSignUp,nextStage}) {
 
                 <div className={styles.signUp__container__content__nameContainer}>
                     <span>이름</span>
-                    <input type={'text'}  placeholder='이름 입력'></input>
+                    <NameInput changeName={changeName}/>
                 </div>
 
                 <div className={styles.signUp__container__content__identifyContainer}>
                     <span>주민등록번호</span>
                     <div className={styles.signUp__container__content__identifyContainer__identify}>
-                        <input type={'text'} placeholder='주민등록번호 앞 6자리'></input>
+                        <RrnInput changeRrn={changeRrn}/>
                         <span>-</span>
-                        <input type={'text'}></input>
+                        <BackRrnInput changeBackRrn={changeBackRrn}/>
                         <span>●●●●●●</span>
                     </div>
                 </div>
 
                 <div className={styles.signUp__container__content__phoneContainer}>
-                    <span>휴대폰 인증</span>
+                    <span>휴대폰 번호 입력</span>
                     <div>
-                        <input placeholder='휴대폰 번호 인증'></input>
-                        <button>인증요청</button>
-                    </div>
-                    <div>
-                        <input placeholder='인증번호 입력'></input>
-                        <button>확인</button>
+                        <PhoneInput changePhone={changePhone}/>
                     </div>
                 </div>
 
@@ -55,4 +72,20 @@ export default function SignUp2({closeSignUp,nextStage}) {
             </div>
         </div>
     )
+}
+
+function NameInput({changeName}){
+    return <input type={'text'}  placeholder='이름 입력' onChange={changeName} required/>
+}
+
+function RrnInput({changeRrn}){
+    return <input type={'text'} placeholder='주민등록번호 앞 6자리' onChange={changeRrn}  required/>
+}
+
+function BackRrnInput({changeBackRrn}){
+    return <input type={'text'} onChange={changeBackRrn} required/>
+}
+
+function PhoneInput({changePhone}){
+    return  <input placeholder='휴대폰 번호 입력' onChange={changePhone} required/>
 }

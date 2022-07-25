@@ -3,8 +3,6 @@ import styles from '../../styles/SignUp.module.scss';
 
 export default function SignUp1({closeSignUp,nextStage}){
 
-    console.log(1);
-
     const [email, setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [passwordCheck,setPasswordCheck] = useState();
