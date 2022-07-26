@@ -1,12 +1,10 @@
 import { useCallback, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
-export default function SignUp2({closeSignUp,nextStage}) {
+export default function SignUp2({closeSignUp,nextStage,changeBackRrn,changePhone}) {
     
     const [name, setName] = useState('');
     const [rrn, setRrn] = useState();
-    const [backRrn, setBackRrn] = useState();
-    const [phone, setPhone] = useState();
 
     const changeName = useCallback((e)=>{
         setName(e.target.value)
@@ -16,13 +14,7 @@ export default function SignUp2({closeSignUp,nextStage}) {
         setRrn(e.target.value)
     },[rrn])
 
-    const changeBackRrn = useCallback((e)=>{
-        setBackRrn(e.target.value);
-    },[backRrn])
-
-    const changePhone = useCallback((e)=>{
-        setPhone(e.target.value);
-    },[phone])
+    
 
     return (    
         <div className={styles.signUp__container}>

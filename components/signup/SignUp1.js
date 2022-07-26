@@ -1,48 +1,30 @@
 import React ,{ useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
-export default function SignUp1({closeSignUp,nextStage}){
+export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW,changePWCheck,changeNickname}){
 
-    const [email, setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const [passwordCheck,setPasswordCheck] = useState();
-    const [nickName, setNickName] = useState('');
+    const {username,password,passwordCheck,nickname} = info;
+
 
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [nickNameError, setNicknameError] = useState(false);
 
-    const changeEmail = useCallback((e) =>{
-        setEmail(e.target.value);
-    },[email])
-     
-    const changePW = useCallback((e) =>{
-        setPassword(e.target.value);
-    },[password])
-
-    const changePWCheck = useCallback((e) =>{
-        setPasswordCheck(e.target.value);
-    },[passwordCheck])
-
-    const changeNickname = useCallback((e)=>{
-        setNickName(e.target.value);
-    },[nickName])
-
     const validateEmail = (e) => {
         e.preventDefault();
         const re = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
         
-        if (re.test(email)) setEmailError(true);
+        if (re.test(username)) setEmailError(true);
         else alert('이메일 형식을 올바르게 입력해주세요');
     }
     
     const checkPasswordError = () => {
-        if(password === passwordCheck) setPasswordError(true);
+        if(password === passwordCheck && password && passwordCheck) setPasswordError(true);
         else setPasswordError(false);
     }
 
     const checkNicknameError = () => {
-        if(!nickName) alert('닉네임을 입력해주세요!');
+        if(!nickname) alert('닉네임을 입력해주세요!');
         else setNicknameError(true);
      }
 

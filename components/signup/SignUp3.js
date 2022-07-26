@@ -1,7 +1,9 @@
 import styles from '../../styles/SignUp.module.scss';
+import axios from 'axios';
+export default function SignUp3({closeSignUp,nextStage,info}){
 
-export default function SignUp3({closeSignUp}){
-    
+    // getPost({info});
+
     return (    
         <div className={styles.signUp__container}>
             <div className={styles.signUp__container__content}>
@@ -30,11 +32,22 @@ export default function SignUp3({closeSignUp}){
                 </div>
                 
 
-                <div className={styles.signUp__container__content__nextBtn}>
+                <div className={styles.signUp__container__content__nextBtn} onClick={nextStage} >
                     <span>로그인 하기</span>
                 </div>
                 <div onClick={closeSignUp} className={styles.signUp__container__content__button}>X</div>
             </div>
         </div>
     )
+}
+
+async function getPost({info}) {
+    try {
+      const response = await axios.post('http://54.180.30.117:8080/users/signup', {
+        ...info    
+    });
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
 }
