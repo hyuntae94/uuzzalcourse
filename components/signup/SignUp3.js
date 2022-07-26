@@ -2,7 +2,8 @@ import styles from '../../styles/SignUp.module.scss';
 import axios from 'axios';
 export default function SignUp3({closeSignUp,nextStage,info}){
 
-    // getPost({info});
+    console.log(info);
+    getPost({info});
 
     return (    
         <div className={styles.signUp__container}>
@@ -43,11 +44,10 @@ export default function SignUp3({closeSignUp,nextStage,info}){
 
 async function getPost({info}) {
     try {
-      const response = await axios.post('http://54.180.30.117:8080/users/signup', {
-        ...info    
-    });
+      const response = await axios.post('http://54.180.30.117:8080/users/signup',{
+        ...info
+      });
       console.log(response);
-    } catch (error) {
-      console.error(error);
+    } catch(err){
     }
 }

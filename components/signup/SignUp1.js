@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React ,{ useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
@@ -10,12 +11,19 @@ export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW
     const [passwordError, setPasswordError] = useState(false);
     const [nickNameError, setNicknameError] = useState(false);
 
-    const validateEmail = (e) => {
-        e.preventDefault();
-        const re = new RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
-        
-        if (re.test(username)) setEmailError(true);
-        else alert('이메일 형식을 올바르게 입력해주세요');
+    const validateEmail = async () => {
+        const data = {
+            username : username,
+            nickname : nickname
+        }
+       
+        try{
+            const res = await axios.get('http://54.180.30.117:8080/ping',data)
+            if (res.status === 200) setEmailError(true);
+        } catch(error){
+            console.error(error);
+            alert('중복된 이메일 입니다.')
+        }
     }
     
     const checkPasswordError = () => {
