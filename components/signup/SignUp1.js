@@ -2,6 +2,8 @@ import axios from 'axios';
 import React ,{ useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
 
+
+
 export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW,changePWCheck,changeNickname}){
 
     const {username,password,passwordCheck,nickname} = info;
@@ -16,13 +18,14 @@ export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW
             username : username,
             nickname : nickname
         }
-       
-        try{
-            const res = await axios.get('http://54.180.30.117:8080/ping',data)
-            if (res.status === 200) setEmailError(true);
+        // setEmailError(true);
+        try{    
+            const res = await axios.get('http://54.180.30.117:8080/users/check',JSON.stringify(data))
+            if (res.status === 200) {
+                setEmailError(true);
+            }
         } catch(error){
-            console.error(error);
-            alert('중복된 이메일 입니다.')
+            console.log(error.response);
         }
     }
     

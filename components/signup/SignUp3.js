@@ -1,9 +1,12 @@
 import styles from '../../styles/SignUp.module.scss';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+
 export default function SignUp3({closeSignUp,nextStage,info}){
 
-    console.log(info);
-    getPost({info});
+    const data = JSON.stringify(info);
+    console.log(data);
+    getPost({data});
 
     return (    
         <div className={styles.signUp__container}>
@@ -42,12 +45,11 @@ export default function SignUp3({closeSignUp,nextStage,info}){
     )
 }
 
-async function getPost({info}) {
+const getPost = async ({data}) => {
     try {
-      const response = await axios.post('http://54.180.30.117:8080/users/signup',{
-        ...info
-      });
+      const response = await axios.post('http://54.180.30.117:8080/users/signup', data);
       console.log(response);
     } catch(err){
+        console.error(err);
     }
 }
