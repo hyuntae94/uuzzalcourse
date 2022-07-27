@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React ,{ useCallback, useEffect, useState } from 'react';
 import styles from '../../styles/SignUp.module.scss';
-
+import { useRouter } from 'next/router';
 
 
 export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW,changePWCheck,changeNickname}){
 
+    const router = useRouter();
     const {username,password,passwordCheck,nickname} = info;
 
 
@@ -14,18 +15,20 @@ export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW
     const [nickNameError, setNicknameError] = useState(false);
 
     const validateEmail = async () => {
-        const data = {
+                
+        const data = JSON.stringify({
             username : username,
             nickname : nickname
-        }
+        })
         // setEmailError(true);
+        let res;
         try{    
-            const res = await axios.get('http://54.180.30.117:8080/users/check',JSON.stringify(data))
-            if (res.status === 200) {
-                setEmailError(true);
-            }
-        } catch(error){
-            console.log(error.response);
+            res = await axios.get(process.env.NEXT_PUBLIC_API_URL+'users/check',data)
+            // res = await axios.get(process.env.NEXT_PUBLIC_API_URL+'ping',data)
+            console.log(res);
+        } catch(err){
+            console.log(res);
+            console.error(err);
         }
     }
     

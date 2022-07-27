@@ -14,8 +14,6 @@ export default function SignUp2({closeSignUp,nextStage,changeBackRrn,changePhone
         setRrn(e.target.value)
     },[rrn])
 
-    
-
     return (    
         <div className={styles.signUp__container}>
             <div className={styles.signUp__container__content}>
