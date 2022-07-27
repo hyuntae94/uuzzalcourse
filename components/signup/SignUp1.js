@@ -21,7 +21,9 @@ export default function SignUp1({closeSignUp,nextStage,info,changeEmail,changePW
             nickname : nickname
         })
         // setEmailError(true);
+
         let res;
+        
         try{    
             res = await axios.get(process.env.NEXT_PUBLIC_API_URL+'users/check',data)
             // res = await axios.get(process.env.NEXT_PUBLIC_API_URL+'ping',data)

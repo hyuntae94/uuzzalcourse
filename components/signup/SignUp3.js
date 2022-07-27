@@ -50,7 +50,7 @@ const getPost = async ({data}) => {
 
     let res;
     try {
-      res = await axios.post('http://54.180.30.117:8080/users/signup', data);
+      res = await axios.post(process.env.NEXT_PUBLIC_API_URL+'users/signup', data);
       console.log(res);
     } catch(err){
         console.log(res);
