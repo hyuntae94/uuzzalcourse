@@ -37,16 +37,21 @@ export default function SignIn1({closeSignIn,nextStage}){
                 <div className={styles.SignIn__container__content__nextBtn} onClick={nextStage}>
                     <span>로그인</span>
                 </div>
-                <div className={styles.SignIn__container__content__completeMessage}>
-                    <button>SNS로 간편하게 시작하기</button>   
+               
+                <div className={styles.SignIn__container__content__loginContainer}>
+                    <span>SNS로 간편하게 시작하기</span>   
                     <div>
-                        <button>Naver</button> 
-                        <button>Kakao</button> 
-                        <button>Google</button> 
-                        <button>Apple</button> 
+                        <span>1 </span>
+                        <span>2 </span>
+                        <span>3 </span>
+                        <span>4 </span>                        
                     </div>
-                    <span>회원가입</span>                    
+                    
                 </div>
+                <div className={styles.SignIn__container__content__signInBtn} onClick={nextStage} >
+                        <span>회원가입</span>
+                </div>
+              
                 
                 <div onClick={closeSignIn} className={styles.SignIn__container__content__button}>X</div>
             </div>

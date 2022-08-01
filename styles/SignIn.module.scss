@@ -180,6 +180,24 @@
                 color:white;
             }
         }
+
+        &__signInBtn{
+            border-radius: 6px;
+            margin: 20px 0px;
+            padding : 20px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:rgb(75,75,75);
+            background-color: rgb(243,243,243);
+            &:hover{
+                cursor:pointer;
+                background-color: rgb(243,243,243);
+                color:black;
+            }
+        }
+
+
         &__nameContainer{
             position: relative;
             color:rgb(75,75,75);
@@ -275,6 +293,64 @@
                 color:rgb(164,164,164);
                 font-weight: 300;
                 font-size: 14px;
+            }
+        }
+
+        &__loginContainer{
+            height: 12vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            line-height: 35px;
+            > span:nth-child(1){
+                color:rgb(18,18,18);
+                font-weight: 500;
+                font-size: 20px;
+            }
+            > span:nth-child(2){
+                color:rgb(164,164,164);
+                font-weight: 300;
+                font-size: 14px;
+            }
+        }
+
+        &__SNSContainer{
+            margin-bottom: 20px;
+            color:rgb(75,75,75);
+            font-size:13px;
+            div {
+                background: url('../pages/images/logo.png');
+
+                button{
+                    position: absolute;
+                    right: 3px;
+                    bottom:15px;
+                }
+                div{                        
+                    background: url('../pages/images/logo.png');
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            button {  
+                margin: 8px 4px;   
+                background: url('../pages/images/logo.png');
+                background-size:cover;
+                &:hover{
+                    cursor: pointer;
+                }
+
+            }
+            input {
+                margin: 3px 0px 8px;
+                padding: 10px 0px;
+                border:none;
+                border-bottom: 1px solid rgb(219,219,219);
+                &:focus{
+                    outline:none;
+                }
             }
         }
     }   
