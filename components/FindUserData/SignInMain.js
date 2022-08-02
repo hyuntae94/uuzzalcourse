@@ -3,7 +3,6 @@ import { useState } from "react"
 import SignIn1 from "./SignIn1.js";
 import SignIn2 from "./SignIn2.js";
 import SignIn3 from "./SignIn3.js";
-import SignUp1 from "../signup/SignUp1.js";
 
 export default function SingUpMain({closeSignIn}){
     
